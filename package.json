@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "jest --verbose"
   },
   "author": "Mika Vahlberg",
   "license": "MIT",
   "devDependencies": {
+    "jest": "^25.2.4",
     "nodemon": "^2.0.2"
   },
   "dependencies": {
