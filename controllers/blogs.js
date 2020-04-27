@@ -14,8 +14,23 @@ const getTokenFrom = (request) => {
 
 
 blogsRouter.get('/', async (request, response) => {
-  const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 })
+  //const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 })
+  const blogs = await Blog.find({})
   response.json(blogs.map(blog => blog.toJSON()))
+})
+
+blogsRouter.put('/:id', async (request, response) => {
+  const body = request.body
+
+  const blog = {
+    user: body.user,
+    title: body.title,
+    author: body.author,
+    url: body.url,
+    likes: body.likes
+  }
+  const savedBlog = await Blog.findByIdAndUpdate(request.params.id, blog, { new: true })
+  response.json(savedBlog.toJSON())
 })
 
 blogsRouter.post('/', async (request, response) => {
@@ -27,7 +42,6 @@ blogsRouter.post('/', async (request, response) => {
     return response.status(401).json({ error: 'token missing or invalid' })
   }
   const user = await User.findById(decodedToken.id)
-
 
   const blog = new Blog({
     title: body.title,

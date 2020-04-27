@@ -1,4 +1,4 @@
-POST http://localhost:3001/api/blogs
+PUT http://localhost:3001/api/blogs/5ea678443e5b580f31e7dab9
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjVlOGRlYWI3MWZlNmFjM2FmZTNmMTE0MyIsImlhdCI6MTU4NjY4MjAyMH0.nBd_-zLgaOGIbxT8jx9ngCtjaI6mQSUJOUN19ogC0rU
 
@@ -6,5 +6,8 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb
   "title": "Uusi blogi",
   "author": "String",
   "url": "http:s//",
-  "likes": 1
+  "likes": 3,
+  "user": "5e8deab71fe6ac3afe3f1143"
 }
+
+
